@@ -1,0 +1,19 @@
+<h1>This is where we will have some status and config page.</h1>
+<p>Until then, you can find <a href="/packages">Packages</a> and the complete <a href="/mirror">Mirror</a></p>
+
+<div id="package"></div>
+
+<script>
+    function loadFile(filePath) {
+      var result = null;
+      var xmlhttp = new XMLHttpRequest();
+      xmlhttp.open("GET", filePath, false);
+      xmlhttp.send();
+      if (xmlhttp.status==200) {
+        result = xmlhttp.responseText;
+      }
+      return result;
+    }
+
+document.getElementById("package").innerHTML = loadFile("package.txt").replace(/\n/, "<br>");
+</script>
